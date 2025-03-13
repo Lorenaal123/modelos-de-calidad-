@@ -15,9 +15,9 @@ document.body.innerHTML += `
     <label>Programa ID: <input type="number" id="programaId" /></label><br>
     <button type="button" onclick="enviarSolicitud()">Enviar</button>
   </form>
-`
+`;
 
-const solicitudes = [];
+const solicitudes = ;
 
 function enviarSolicitud() {
   const nombre = document.getElementById("nombre").value.trim();
