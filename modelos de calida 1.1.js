@@ -5,7 +5,6 @@ const catalogo = [
   { id: 3, nombre: "Derecho", duracion: "10 semestres" }
 ];
 
-
 catalogo.forEach(programa => {
   console.log(programa.id + ". " + programa.nombre + " - " + programa.duracion);
 });
@@ -24,18 +23,18 @@ function enviarSolicitud() {
   var nombre = document.getElementById("nombre").value;
   var programaId = document.getElementById("programaId").value;
 
+  if (nombre === "") {
+    alert("El nombre es obligatorio");
+    return;
+  }
+  if (programaId === "") {
+    alert("El ID del programa es obligatorio");
+    return;
+  }
 
-  if (nombre == "") alert("El nombre es obligatorio");
-  if (programaId == "") alert("El ID del programa es obligatorio");
-
-
-  alert("alert('Solicitud para ' + nombre + ' en el programa ' + programaId)");
-
-
-  return;
-  alert("Esta alerta nunca se mostrará");
+  // Corrección de la línea 36
+  alert(`Solicitud para ${nombre} en el programa ${programaId}`);
 }
-
 
 window.enviarSolicitud = enviarSolicitud;
 window.catalogo = catalogo;
