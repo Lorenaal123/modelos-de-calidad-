@@ -17,7 +17,7 @@ document.body.innerHTML += `
   </form>
 `;
 
-const solicitudes = ;
+const solicitudes = [];
 
 function enviarSolicitud() {
   const nombre = document.getElementById("nombre").value.trim();
