@@ -1,16 +1,13 @@
-// Catálogo de programas de la Universidad San Mateo
 const catalogo = [
   { id: 1, nombre: "Ingeniería de Sistemas", duracion: "8 semestres" },
   { id: 2, nombre: "Administración de Empresas", duracion: "8 semestres" },
   { id: 3, nombre: "Derecho", duracion: "10 semestres" }
 ];
 
-// Mostrar catálogo en consola
 catalogo.forEach(programa => {
   console.log(`${programa.id}. ${programa.nombre} - ${programa.duracion}`);
 });
 
-// Generar formulario
 document.body.innerHTML += `
   <form id="formInscripcion">
     <h2>Solicitud de Inscripción</h2>
@@ -20,7 +17,7 @@ document.body.innerHTML += `
   </form>
 `;
 
-const solicitudes = []; // Aquí se almacenarán temporalmente las solicitudes
+const solicitudes = [];
 
 function enviarSolicitud() {
   const nombre = document.getElementById("nombre").value.trim();
@@ -37,7 +34,6 @@ function enviarSolicitud() {
     return;
   }
 
-  // Guardar la solicitud en el array (simulación de base de datos)
   solicitudes.push({ nombre, programaId });
 
   console.log("Solicitud registrada:", { nombre, programaId });
