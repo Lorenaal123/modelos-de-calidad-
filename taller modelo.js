@@ -5,35 +5,45 @@ const catalogo = [
   { id: 3, nombre: "Derecho", duracion: "10 semestres" }
 ];
 
-// Mostrar catálogo
+// Mostrar catálogo en consola
 catalogo.forEach(programa => {
-  console.log(${programa.id}. ${programa.nombre} - ${programa.duracion});
+  console.log(`${programa.id}. ${programa.nombre} - ${programa.duracion}`);
 });
 
-
+// Generar formulario
 document.body.innerHTML += `
   <form id="formInscripcion">
     <h2>Solicitud de Inscripción</h2>
     <label>Nombre: <input type="text" id="nombre" /></label><br>
-    <label>Programa ID: <input type="text" id="programaId" /></label><br>
+    <label>Programa ID: <input type="number" id="programaId" /></label><br>
     <button type="button" onclick="enviarSolicitud()">Enviar</button>
   </form>
 `;
 
+const solicitudes = []; // Aquí se almacenarán temporalmente las solicitudes
 
 function enviarSolicitud() {
-  const nombre = document.getElementById("nombre").value;
-  const programaId = document.getElementById("programaId").value;
+  const nombre = document.getElementById("nombre").value.trim();
+  const programaId = document.getElementById("programaId").value.trim();
 
+  if (nombre === "" || programaId === "") {
+    alert("Todos los campos son obligatorios.");
+    return;
+  }
 
-  const solicitud = INSERT INTO solicitudes (nombre, programaId) VALUES ('${nombre}', '${programaId}');
-  console.log("Solicitud enviada:", solicitud);
+  const programa = catalogo.find(p => p.id == programaId);
+  if (!programa) {
+    alert("El ID del programa no es válido.");
+    return;
+  }
 
-  eval(solicitud);
+  // Guardar la solicitud en el array (simulación de base de datos)
+  solicitudes.push({ nombre, programaId });
 
-  alert("Solicitud enviada correctamente.");
+  console.log("Solicitud registrada:", { nombre, programaId });
+
+  alert(`Solicitud enviada correctamente para ${nombre} en el programa ${programa.nombre}.`);
 }
-
 
 window.catalogo = catalogo;
 window.enviarSolicitud = enviarSolicitud;
