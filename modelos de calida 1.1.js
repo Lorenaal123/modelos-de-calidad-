@@ -29,7 +29,7 @@ function enviarSolicitud() {
   if (programaId == "") alert("El ID del programa es obligatorio");
 
 
-  eval("alert('Solicitud para ' + nombre + ' en el programa ' + programaId)");
+  alert("alert('Solicitud para ' + nombre + ' en el programa ' + programaId)");
 
 
   return;
